@@ -16,7 +16,11 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/test.html?v="+version
     });
     
+    $routeProvider.when("/option/:parent", {
+        controller: "optionController",
+        templateUrl: "/app/views/option.html",
 
+    });
     
     $routeProvider.otherwise({ redirectTo: "/home" });
 
@@ -26,7 +30,8 @@ app.config(function ($routeProvider) {
  
  
 
- var serviceBase = 'http://localhost:58908/';
+//var serviceBase = 'http://localhost:58909/';
+var serviceBase ='http://api.epapocket.ir/'
  var webBase = 'http://localhost:30273/';
 
 app.constant('ngAuthSettings', {
@@ -86,7 +91,7 @@ app.run(['authService',  '$rootScope', '$location', '$templateCache', function (
 
     };
     $rootScope.headerClasses = ['app-headerx', 'wrapper-bubble', 'col-lg-12', 'col-md-12', 'col-sm-12', 'col-xs-12'];
-    $rootScope.headerClasses.push('theme-blue');
+    $rootScope.headerClasses.push('theme-steel');
     Config.CustomerId = 1;
     authService.fillAuthData();
     authService.fillModuleData();
@@ -103,7 +108,22 @@ app.run(['authService',  '$rootScope', '$location', '$templateCache', function (
     //$rootScope.setTheme();
     $rootScope.history = [];
 
-
+    $rootScope.getSelectedRow = function (instance) {
+        if (!instance)
+            return null;
+        var rows = instance.getSelectedRowsData();
+        if (rows && rows.length > 0)
+            return rows[0];
+        return null;
+    };
+    $rootScope.getSelectedRows = function (instance) {
+        if (!instance)
+            return null;
+        var rows = instance.getSelectedRowsData();
+        if (rows && rows.length > 0)
+            return rows;
+        return null;
+    };
     
     //DevExpress.ui.themes.current('material.teal-light');
 

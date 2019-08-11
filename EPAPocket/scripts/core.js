@@ -246,9 +246,9 @@ General.ShowNotify = function (str, t) {
 General.Confirm = function (str, callback) {
     var myDialog = DevExpress.ui.dialog.custom({
         rtlEnabled: true,
-        title: "Confirm",
+        title: "تایید",
         message: str,
-        buttons: [{ text: "No", onClick: function () { callback(false); } }, { text: "Yes", onClick: function () { callback(true); } }]
+        buttons: [{ text: "خیر", onClick: function () { callback(false); } }, { text: "بله", onClick: function () { callback(true); } }]
     });
     myDialog.show();
 

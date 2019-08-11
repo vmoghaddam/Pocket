@@ -21,8 +21,13 @@
        
     }
 
- 
-
+.dx-item.dx-toolbar-item.dx-toolbar-label{
+    max-width:unset !important;
+}
+.dx-toolbar-before{
+    left:unset !important;
+    right:0;
+}
 .block {
     display: block;
 }

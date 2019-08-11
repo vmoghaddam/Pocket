@@ -13,7 +13,7 @@
     <link href="content/styles/ionicons.css" rel="stylesheet" />
     <link href="content/styles/fontawsome2.css" rel="stylesheet" />
     <link href="content/styles/dx.common.css" rel="stylesheet" />
-      <link href="content/styles/material.blue-light.custom.css" rel="stylesheet" /> 
+      <link href="content/styles/material.steel-light.custom.css" rel="stylesheet" /> 
    
     <!-- <link rel="dx-theme" data-theme="material.teal-light" href="content/styles/material.teal-light.custom.css" data-active="true" />-->
     <!--<link rel="dx-theme" data-theme="material.purple-light" href="content/styles/material.purple-light.custom.css" data-active="false" />
@@ -40,9 +40,9 @@
         }
     </style>
 </head>
-<body    >
+<body>
     <div ng-app="EPAPocketApp" style=" height:100%">
-     
+
         <div class="anfade" ng-view></div>
     </div>
 
@@ -72,15 +72,18 @@
     <script src="scripts/globalize/number.js"></script>
     <!--<script type="text/javascript" src="scripts/ionicons.js"></script>-->
     <script src="scripts/config.js"></script>
-
+    <script src="scripts/core.js"></script>
 
     <script src="app/app.js?v=3"></script>
     <script src="app/controllers/testController.js?v=3"></script>
+    <script src="app/controllers/optionAddController.js?v=3"></script>
+    <script src="app/controllers/optionController.js?v=3"></script>
 
 
     <!-- Load services -->
     <script src="app/services/authInterceptorService.js?v=2"></script>
     <script src="app/services/authService.js?v=2"></script>
+    <script src="app/services/enumsService.js"></script>
 
 
 </body>

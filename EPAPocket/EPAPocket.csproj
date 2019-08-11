@@ -69,14 +69,19 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\indexController.js" />
+    <Content Include="app\controllers\optionAddController.js" />
+    <Content Include="app\controllers\optionController.js" />
     <Content Include="app\controllers\testController.js" />
     <Content Include="app\services\appService.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
+    <Content Include="app\services\enumsService.js" />
     <Content Include="app\services\orderService.js" />
     <Content Include="app\services\personService.js" />
     <Content Include="app\views\header.html" />
     <Content Include="app\views\home.html" />
+    <Content Include="app\views\option.html" />
+    <Content Include="app\views\optionadd.html" />
     <Content Include="app\views\test.html" />
     <Content Include="content\fonts\fontawesome-webfont.svg" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
