@@ -53,24 +53,24 @@ app.controller('optionAddController', ['$scope', '$location', 'enumsService', 'a
     };
 
     //////////////////////////
-  
+
     $scope.txt_Title = {
         hoverStateEnabled: false,
         bindingOptions: {
             value: 'entity.Title',
         }
     };
-    
-   
-    
-   
+
+
+
+
     /////////////////////////////
     $scope.pop_width = 400;
     $scope.pop_height = 200;
     $scope.popup_add_visible = false;
     $scope.popup_add_title = 'جدید';
     $scope.popup_add = {
-        rtlEnabled:true,
+        rtlEnabled: true,
         fullScreen: false,
         showTitle: true,
 
@@ -88,12 +88,12 @@ app.controller('optionAddController', ['$scope', '$location', 'enumsService', 'a
                 $scope.pop_width = size.width;
                 $scope.pop_height = size.height;
             }
-          
+
 
         },
         onShown: function (e) {
 
-             
+
 
             if ($scope.tempData != null)
                 $scope.bind($scope.tempData);
@@ -132,13 +132,13 @@ app.controller('optionAddController', ['$scope', '$location', 'enumsService', 'a
 
         if ($scope.isNew)
             $scope.entity.Id = -1;
-         
+
         $scope.entity.ParentId = $scope.ParentId;
-        $scope.entity.CreatorId= Config.CustomerId,
-       
+        $scope.entity.CreatorId = Config.CustomerId,
+
 
             $scope.loadingVisible = true;
-         
+
         enumsService.save($scope.entity).then(function (response) {
 
             $scope.clearEntity();
@@ -158,7 +158,7 @@ app.controller('optionAddController', ['$scope', '$location', 'enumsService', 'a
 
         }, function (err) { $scope.loadingVisible = false; General.ShowNotify(err.message, 'error'); });
 
-        
+
 
     };
     ////////////////////////////
@@ -167,7 +167,7 @@ app.controller('optionAddController', ['$scope', '$location', 'enumsService', 'a
     $scope.parent = null;
     $scope.parentCode = null;
     $scope.ParentCustomerId = null;
-    
+
 
     $scope.$on('InitAddOption', function (event, prms) {
 
@@ -179,8 +179,8 @@ app.controller('optionAddController', ['$scope', '$location', 'enumsService', 'a
             $scope.isNew = true;
             $scope.popup_add_title = 'جدید';
             $scope.ParentId = prms.ParentId;
-           
-           
+
+
         }
 
         else {
@@ -189,9 +189,9 @@ app.controller('optionAddController', ['$scope', '$location', 'enumsService', 'a
             $scope.tempData = prms;
             $scope.isNew = false;
 
-             
+
             $scope.ParentId = prms.ParentId;
-            
+
         }
 
         $scope.popup_add_visible = true;

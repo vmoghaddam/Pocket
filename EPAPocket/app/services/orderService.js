@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.factory('orderService', ['$http', '$q',   '$rootScope', function ($http, $q,   $rootScope) {
+app.factory('orderService', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
 
 
 
@@ -31,7 +31,7 @@ app.factory('orderService', ['$http', '$q',   '$rootScope', function ($http, $q,
 
         return deferred.promise;
     };
-    
+
 
     var _save = function (entity) {
         var deferred = $q.defer();
@@ -44,8 +44,8 @@ app.factory('orderService', ['$http', '$q',   '$rootScope', function ($http, $q,
 
         return deferred.promise;
     };
-     
- 
+
+
     serviceFactory.save = _save;
     serviceFactory.getOrders = _getOrders;
     return serviceFactory;

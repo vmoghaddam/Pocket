@@ -14,13 +14,13 @@ app.controller('optionController', ['$scope', '$location', '$routeParams', '$roo
         onClick: function (e) {
             $scope.doRefresh = true;
             $scope.bind();
-             
+
             //$scope.$broadcast('getFilterQuery', null);
 
         }
 
     };
-    
+
     $scope.btn_delete = {
         text: 'حذف',
         type: 'danger',
@@ -60,9 +60,9 @@ app.controller('optionController', ['$scope', '$location', '$routeParams', '$roo
         width: 120,
         onClick: function (e) {
 
-            var data = { Id: null, ParentId: $scope._parent};
-            
-                $rootScope.$broadcast('InitAddOption', data);
+            var data = { Id: null, ParentId: $scope._parent };
+
+            $rootScope.$broadcast('InitAddOption', data);
 
 
         }
@@ -87,11 +87,11 @@ app.controller('optionController', ['$scope', '$location', '$routeParams', '$roo
     };
     /////////////////////////////////////////
     $scope.dg_columns = [
-        
-         
-        { dataField: 'Title', caption: 'عنوان', allowResizing: true,  dataType: 'string', allowEditing: false,  sortIndex: 1, sortOrder: "asc" },
-       
-       
+
+
+        { dataField: 'Title', caption: 'عنوان', allowResizing: true, dataType: 'string', allowEditing: false, sortIndex: 1, sortOrder: "asc" },
+
+
 
 
 
@@ -140,12 +140,12 @@ app.controller('optionController', ['$scope', '$location', '$routeParams', '$roo
 
                 $scope.dg_selected = null;
 
-                
+
 
             }
             else {
                 $scope.dg_selected = data;
-                 
+
 
             }
 
@@ -153,11 +153,11 @@ app.controller('optionController', ['$scope', '$location', '$routeParams', '$roo
         },
         height: $(window).height() - 132,
         bindingOptions: {
-            dataSource: 'dg_ds',  
-            
+            dataSource: 'dg_ds',
+
         }
     };
-     
+
     //////////////////////////////////////////
     var dataUrl = "odata/options/" + $scope._parent;
     $rootScope.page_title = 'Enums';
@@ -168,12 +168,12 @@ app.controller('optionController', ['$scope', '$location', '$routeParams', '$roo
     else {
 
         switch ($scope._parent) {
-            
+
             case '59':
-                $rootScope.page_title = ':' + 'رشته تحصیلی'; 
-                
+                $rootScope.page_title = ':' + 'رشته تحصیلی';
+
                 break;
-            
+
             default:
                 break;
         }
@@ -229,7 +229,7 @@ app.controller('optionController', ['$scope', '$location', '$routeParams', '$roo
 
         if ($scope.doRefresh) {
             $scope.filters = $scope.getFilters();
-            
+
             $scope.dg_instance.refresh();
             $scope.doRefresh = false;
         }
@@ -249,7 +249,7 @@ app.controller('optionController', ['$scope', '$location', '$routeParams', '$roo
         }, function (err) { $scope.loadingVisible = false; General.ShowNotify(err.message, 'error'); });
     };
     //////////////////////////////////////////
-     
+
     $scope.$on('onTemplateSearch', function (event, prms) {
 
         $scope.$broadcast('getFilterQuery', null);

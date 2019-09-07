@@ -1,13 +1,13 @@
-﻿app.controller('testController', ['$scope', '$location', '$routeParams', '$rootScope',  'authService', function ($scope, $location, $routeParams, $rootScope,  authService) {
+﻿app.controller('testController', ['$scope', '$location', '$routeParams', '$rootScope', 'authService', function ($scope, $location, $routeParams, $rootScope, authService) {
     $scope.prms = $routeParams.prms;
 
     $scope.txt_control_value = 'لورم ایپسوم';
     $scope.txt_control = {
         hoverStateEnabled: false,
         width: 200,
-        rtlEnabled:true,
+        rtlEnabled: true,
         bindingOptions: {
-           value:'txt_control_value',
+            value: 'txt_control_value',
         }
     };
     $scope.sb_control = {
@@ -19,7 +19,7 @@
         rtlEnabled: true,
         width: 400,
         bindingOptions: {
-             
+
         }
     };
 
@@ -35,7 +35,7 @@
             cssClass: 'rowHeader'
         },
 
-        { dataField: "Title", caption: "عنوان", allowResizing: true, alignment: "right", dataType: 'string', allowEditing: false, width: 300, fixed: true, fixedPosition: 'right'},
+        { dataField: "Title", caption: "عنوان", allowResizing: true, alignment: "right", dataType: 'string', allowEditing: false, width: 300, fixed: true, fixedPosition: 'right' },
         { dataField: "Connector", caption: "رابط", allowResizing: true, alignment: "right", dataType: 'string', allowEditing: false, width: 150 },
         { dataField: "Phone", caption: "تلفن", allowResizing: true, alignment: "center", dataType: 'string', allowEditing: false, width: 150 },
 
@@ -44,20 +44,20 @@
         { dataField: "Address", caption: "آدرس", allowResizing: true, alignment: "right", dataType: 'string', allowEditing: false, width: 300 },
         { dataField: "PostalCode", caption: "کد پستی", allowResizing: true, alignment: "center", dataType: 'string', allowEditing: false, width: 150 },
 
-        { dataField: "Remark", caption: "توضیحات", allowResizing: true, alignment: "right", dataType: 'string', allowEditing: false, width:500 },
+        { dataField: "Remark", caption: "توضیحات", allowResizing: true, alignment: "right", dataType: 'string', allowEditing: false, width: 500 },
 
 
     ];
     $scope.dg_selected = null;
 
     $scope.dg_instance = null;
-    $scope.dg_ds =  [{ Title: 'بهزیستی',ID:1 }, { Title: 'تامین اجتماعی',ID:2 }];
+    $scope.dg_ds = [{ Title: 'بهزیستی', ID: 1 }, { Title: 'تامین اجتماعی', ID: 2 }];
     $scope.dg = {
         showRowLines: true,
         showColumnLines: true,
         sorting: { mode: 'none' },
         filterRow: $rootScope.dg_filterRow,
-         
+
         noDataText: '',
         rtlEnabled: true,
         allowColumnReordering: true,
@@ -72,7 +72,7 @@
 
         },
         height: 400,
-        width:'100%',
+        width: '100%',
         columns: $scope.dg_columns,
         onContentReady: function (e) {
             if (!$scope.dg_instance)
@@ -101,7 +101,7 @@
         authService.redirectToLogin();
     }
     else {
-        $rootScope.page_title = ':'+' تست';
+        $rootScope.page_title = ':' + ' تست';
         $('.test').fadeIn();
     }
     ////////////////////////////////

@@ -1,55 +1,53 @@
-﻿ 
-var app = angular.module('EPAPocketApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'dx', 'ngSanitize', 'ngAnimate' ]).config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
+﻿
+var app = angular.module('EPAPocketApp', ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'dx', 'ngSanitize', 'ngAnimate']).config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
 }]);
- 
-
- 
-
 
 
 app.config(function ($routeProvider) {
     var version = 0.9;
-    
+
     $routeProvider.when("/test", {
         controller: "testController",
-        templateUrl: "/app/views/test.html?v="+version
+        templateUrl: "/app/views/test.html?v=" + version
     });
-    
+
     $routeProvider.when("/option/:parent", {
         controller: "optionController",
         templateUrl: "/app/views/option.html",
-
     });
-    
+
+    $routeProvider.when("/publisher", {
+        controller: "organizationController",
+        templateUrl: "/app/views/organization.html",
+        TypeId: 77,
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 
-});   
+});
 
- 
- 
- 
 
 //var serviceBase = 'http://localhost:58909/';
-var serviceBase ='http://api.epapocket.ir/'
- var webBase = 'http://localhost:30273/';
+var serviceBase = 'http://api.epapocket.ir/'
+var webBase = 'http://localhost:30273/';
 
 app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
     clientId: 'ngAuthApp'
 });
 
-app.config(['$httpProvider', function ($httpProvider) {
 
+app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptorService');
 }]);
 
-app.run(['authService',  '$rootScope', '$location', '$templateCache', function (authService,  $rootScope, $location, $templateCache) {
- 
-    
+app.run(['authService', '$rootScope', '$location', '$templateCache', function (authService, $rootScope, $location, $templateCache) {
+
+
     $rootScope.$on('$viewContentLoaded', function () {
         $templateCache.removeAll();
-        
+
     });
 
 
@@ -73,7 +71,6 @@ app.run(['authService',  '$rootScope', '$location', '$templateCache', function (
     $rootScope.apps = function () { $location.path('/apps'); };
     $rootScope.menu = function () {
 
-
         $('._menu').hide();
         $('#module' + $rootScope.moduleId).show();
         document.getElementById("mySidenav").style.width = "100%";
@@ -84,10 +81,9 @@ app.run(['authService',  '$rootScope', '$location', '$templateCache', function (
     $rootScope.navigate = function (target, key) {
 
         //var rec = Enumerable.From(Config.MenuItems).Where('$.moduleId==' + $rootScope.moduleId + ' && $.key=="' + key + '"').FirstOrDefault();
-       // activityService.hitMenu(key, target, 'Visiting ' + $rootScope.module + ' > ' + rec.title);
+        // activityService.hitMenu(key, target, 'Visiting ' + $rootScope.module + ' > ' + rec.title);
 
         $location.path(target);
-
 
     };
     $rootScope.headerClasses = ['app-headerx', 'wrapper-bubble', 'col-lg-12', 'col-md-12', 'col-sm-12', 'col-xs-12'];
@@ -124,7 +120,7 @@ app.run(['authService',  '$rootScope', '$location', '$templateCache', function (
             return rows;
         return null;
     };
-    
+
     //DevExpress.ui.themes.current('material.teal-light');
 
     $rootScope.$on('$routeChangeSuccess', function () {
@@ -150,7 +146,6 @@ app.run(['authService',  '$rootScope', '$location', '$templateCache', function (
         if (mobileFull) {
             return h;
         }
-
         return h;
     };
     $rootScope.popupWidth = function (w, fullscreen) {
@@ -160,12 +155,12 @@ app.run(['authService',  '$rootScope', '$location', '$templateCache', function (
             return w;//$jq(window).width();
     };
     $rootScope.navigate2 = function (target, key, module) {
- 
+
         $location.path(target);
 
 
     };
-   
+
     $rootScope.dg_filterRow = {
         visible: true,
         showOperationChooser: true,
@@ -175,6 +170,5 @@ app.run(['authService',  '$rootScope', '$location', '$templateCache', function (
     };
     //////////////////////////////////////////////////////
 }]);
- 
- 
- 
+
+
