@@ -73,6 +73,8 @@
     <Content Include="app\controllers\optionController.js" />
     <Content Include="app\controllers\organizationAddController.js" />
     <Content Include="app\controllers\organizationController.js" />
+    <Content Include="app\controllers\personmiscAddController.js" />
+    <Content Include="app\controllers\personmiscController.js" />
     <Content Include="app\controllers\testController.js" />
     <Content Include="app\services\appService.js" />
     <Content Include="app\services\authInterceptorService.js" />
@@ -87,6 +89,8 @@
     <Content Include="app\views\optionadd.html" />
     <Content Include="app\views\Organization.html" />
     <Content Include="app\views\OrganizationAdd.html" />
+    <Content Include="app\views\personmisc.html" />
+    <Content Include="app\views\personmiscAdd.html" />
     <Content Include="app\views\test.html" />
     <Content Include="content\fonts\fontawesome-webfont.svg" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />

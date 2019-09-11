@@ -23,6 +23,12 @@ app.config(function ($routeProvider) {
         TypeId: 77,
     });
 
+    $routeProvider.when("/author", {
+        controller: "personmiscController",
+        templateUrl: "/app/views/personmisc.html",
+        TypeId: 75,
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 
 });
